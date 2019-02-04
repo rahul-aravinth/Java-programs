@@ -1,0 +1,151 @@
+1. Write an algorithm and pseudo code for the Lucas sequence
+	1 3 4 7 11 18 29 .....
+	
+Algorithm
+Step 1 -Display first two numbers
+Step 2 -Assert for True (first > 0 ^ second < first )
+		Add first two numbers and add the result with the second number
+		Assert for False (first < 0 ^ second > first )
+Step 3 -Display the result in printing statement
+
+Psedocode
+a=1,b=3
+for(i=0 to n do)
+	begin
+	Display a+b, b+(a+b);
+	end
+endforloop
+
+Java Program
+//To import standard library file we use this import command
+import java.util.*;
+class Q1
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(Systemm.in);
+		// We printed the first two elements here
+		int a=1,b=3;
+		System.out.print(a+" "+b+" ");
+		// This line is used to get the number of integers to be shown
+		int n=sc.nextInt();
+		for(int i=0;i<n/2;i++)
+		{
+			//we saved a new integer value to the variable a
+			a=a+b;
+			//we saved a new integer value to the variable b
+			b=a+b;
+			System.out.print( a + " " + b + " ");
+		}
+	}
+}
+
+Test Case
+(1) Input 10
+	Output 1 3 4 7 11 18 29 47 76 123 199 322
+	
+
+2. Write an algorithm and pseudo code for the following output and finally count number of digits in an output integer
+	Input : 2345
+	output: 500000400003000200  (18 )
+
+Algorithm
+Step 1 -Get the integer value from the user
+Step 2 -Assert for True(int > 0 )
+		get seperate numbers and display the exact amount of zeros to its value
+		Assert for False(int < 0)
+Step 3 -count the number of elements at present and display them along side the values
+
+Psedocode
+a=2345
+for(i=0 to 4 do)
+	begin
+	temp=a%10;
+	Display temp*(Math.pow(1,temp));
+	sum+=temp;
+	a=a/10;
+	end
+endforloop
+sum+=4;
+Display sum;
+
+Java Program
+import java.util.*;
+class Day2_Q2
+{
+	public static void main(String args[])
+	{
+		int a=2345;
+		int sum=0,temp=0;
+		while(a!=0)
+		{
+			temp=a%10;
+			System.out.print((int)(temp*(Math.pow(10,temp))));
+			sum+=temp;
+			a=a/10;
+		}
+		sum+=4;
+		System.out.print("   "+sum);
+	}
+}
+
+Test Case
+(1) Input 2345
+Output    500000400003000200   18
+
+
+4. Generate the following series
+
+	2 2 4 2 4 2 4 2 4
+	
+Algorithm
+Step 1 -Generate a prime number list and store them in an array
+Step 2 -Get the user desired range for output
+Step 3 -Assert for True (Arr[] > 0 ^ Arr[element] != 0)
+		Starting from number 3 two nearer numbers are finded difference and printed
+		Assert for False (Arr[] < 0 ^ Arr[element] == 0)
+Step 4 -Display the differences of the elements
+
+Psedocode
+Arr[]={3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+for(i=1 to n do )
+	begin
+	Display Arr[i]-Arr[i-1];
+	end
+endforloop
+
+Java Program
+class Day2_Q4
+{
+    public static void main(String args[])
+    {
+        int count = 0;
+        String prime="";
+        for(int i=1;i<100;i++)
+        {
+            for(int j=1;j<100;j++)
+            {
+                if(i%j==0)
+                    count=count+1;
+                if(count==2)
+                    prime=prime+i+",";
+            }
+            count=0;
+        }
+        String[] sarr=prime.split(",");
+        for(int i=3;i<sarr.length;i++)
+        {
+            System.out.print(sarr[i]);
+        }
+        for(int i=3;i<sarr.length;i++)
+        {
+            int a=Integer.parseInt(sarr[i]);
+            int b=Integer.parseInt(sarr[i-1]);
+            System.out.print((a-b)+" ");
+        }
+    }
+}
+
+Test Case 
+(1) Input  9
+    Output 2 2 4 2 4 2 4 2 4

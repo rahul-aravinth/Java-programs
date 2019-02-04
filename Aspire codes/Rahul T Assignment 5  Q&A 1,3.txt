@@ -1,0 +1,47 @@
+1. Write an algorithm to count the number words in a input text file.
+
+ALGORITHM
+1.choose a file and access it with FileInputSteam 
+2.Get the Inputs by using InputStreamReader
+3.Assert for True( The should contain string )
+  we can read and manipulate the string in the file with the help of BufferedReader
+  Assert for False( The file is empty )
+4.Store the splited words in a string array.
+5.Display the number of words in the array as the count.
+
+JAVA PROGRAM
+import java.io.*;
+public class UntitledDoc {
+    public static void main(String args[])throws IOException{
+        File file = new File("Doc.txt");
+        FileInputStream filestream = new FileInputStream(file);
+        InputStreamReader in = new InputStreamReader(filestream);
+        BufferedReader br = new BufferedReader(in);
+
+        String line;
+	int countWord = 0;
+        while((line = br.readLine())!=null) {
+            if(!line.equals(""));
+            String[] wordList = line.split("\\s+");
+	    countWord += wordList.length;
+        }
+	System.out.println("The number of words in the file is :"+countWord);
+    }
+}
+
+
+Test case
+Input File data
+This is a sample file.
+Output - 5
+
+4. Draw a flowchart for the following process:
+	-- sorting a set of element using shell sort.
+
+Algorithm
+1.Intialize an array and get the values
+2.compare first two elements and place the biggest value in second element with a swaping technique
+3.Do this for the rest of array and start the index value until it is filled in its correct position
+4.Do this for the consiquitive elements.
+
+Flow chart is Attached with this

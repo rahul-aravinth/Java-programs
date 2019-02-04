@@ -1,0 +1,355 @@
+1.Implement a binary search algorithm that calculates the middle using middle = ( lower +upper) /2
+
+ALGORITHM:
+1.Intialize the arr_1,length of array and search variable
+2.Find the middle position using the formula middle=(lower+upper)/2;
+3.Compare the middle position value with search value
+4.If the middle position value is less than the search value, change the starting position  to middle plus one
+5.If the middle position value is greater than the search value, change the end position  to middle minus one
+6.Repeat the steps until middle position value equal to search value
+
+PSEUDO CODE:
+int n;
+int arr_1;
+int search_value;
+middle_v=(lower+upper)/2;
+if(arr_1[middle]<search_value) {assert:True}
+lower=middle+1;
+if(arr_1[middle]>search_value) {assert:False}
+upper=middle-1;
+else
+print(value finded)
+
+JAVA PROGRAM:
+import java.util.*;
+public class As_Binary
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr_1[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr_1[i]=sc.nextInt();
+        }
+        int search_value=sc.nextInt();
+        Binary(arr_1,0,n,search_value);
+    }
+    static void  Binary(int arr_1[],int k,int n,int search_value)
+    {
+        int middle=(k+n)/2;
+        if(arr_1[middle]>search_value)
+        {
+            n=middle-1;
+            Binary(arr_1,k,n,search_value);
+        }
+        else if(arr_1[middle]<search_value) {
+            k=middle+1;
+            Binary(arr_1,k,n,search_value);     }
+        else{
+            System.out.print("position of search value "+(middle+1));
+        } }}
+TEST CASE:
+I)INPUT: 6 1 2 3 4 5 6    3   		OUTPUT: 3
+
+
+2.Write an algorithm for hashing search process :
+	1. Take an set of students name and create your own key value and insert the value in order of hasing tech
+	2. search the any student name based hash search tech process.
+	
+	3. create your own hash tech insert process without using modules method.
+
+ALGORITHM:
+1.Intialize the arr_1,length of array, key, value and search variable
+2.Using hashing technique, find the array index using key modulus of twenty and store the value
+3.If the array index is already filled, increase the array index and store the value
+4.Compare the search value with array find the position of the value.
+
+PSEUDO CODE:
+int n;
+int arr_1[n];
+int search_v;
+int k=0;
+for(int i:=1 to n)
+  temp=key%20;
+ arr_2[k++]=key;
+for(int j:=1 to n)
+if(temp!=arr_2[j]) {assert:True}
+arr_1[temp]=value;
+if(temp==arr_1[j]) {assert:False}
+end;
+
+JAVA PROGRAM:
+import java.util.*;
+public class As_hash
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String arr_1[]=new String[n];
+        int key=2;
+        for(int i=0;i<n;i++)
+        {
+            arr_1[i]=sc.next();
+            
+        }
+        int pos=sc.nextInt();
+        int index=0,l=0;
+        int temp_arr[]=new int[n];
+        String arr_2[]=new String[100];
+        int flag=0;
+        for(int j=0;j<n;j++)
+        {
+           int  temp_index=key%20;
+            key=key+40;
+            if(flag==0)
+            {
+               arr_2[temp_index]=arr_1[l++]; 
+               flag++;
+            }
+            else if(flag!=0)
+            {   if(arr_2[temp_index]!="null")
+                { 
+                temp_index++;
+                arr_2[temp_index]=arr_1[l++];
+                flag++;
+                }
+                else
+                {
+                    arr_2[temp_index]=arr_1[l++];
+                }
+            }
+            
+        }
+            System.out.print(arr_2[pos]+" ");
+
+    }
+}
+TEST CASE:
+I)INPUT: 5    A B C D E    3			OUTPUT: E
+
+
+
+3.Write an algorithm to implement binary tree and binary search process.
+	for the following element : 10 45 18 20 6 78 12 8 4 1 2
+	Search the element : 1
+
+ALGORITHM:
+1.Read the value as a array
+2.Create a binary tree and sort the tree
+3.Using binary search process, find the search element
+4.find middle value using the formula middle=lower+upper/2
+5.If the middle value is smaller than the search value,upper limit change to middle plus one
+6.If the middle value is greater than the search value, lower limit change tomiddle minus one
+7.Repeat the steps until finding the search value
+
+PSEUDO CODE:
+arr[n];
+search_v;
+for(i:0 to n)
+ tree.insert(arr[i]);
+insertRec(root,key)
+if(root==null)  {assert:True}
+return root;
+else if(key<root.key) {assert:True}
+root.left = insertRec(root.left, key); 
+else if (key > root.key)  {assert:True}
+ root.right = insertRec(root.right, key); 
+if(root.key==search_v)   {assert:True}
+write(Finded);
+end
+
+JAVA PROGRAM:
+import java.util.*;
+public class As_binary  
+{   
+    class Node  
+    { 
+        int key; 
+        Node left, right; 
+        public Node(int item)  
+        { 
+            key = item; 
+            left = right = null; 
+        } 
+    } 
+    Node root; 
+    As_binary()  
+    {  
+        root = null;  
+    } 
+    void insert(int key) 
+    { 
+        root = insertRec(root, key); 
+    } 
+    Node insertRec(Node root, int key)  
+    { 
+        if (root == null)  
+        { 
+            root = new Node(key); 
+            return root; 
+        } 
+        if (key < root.key) 
+            root.left = insertRec(root.left, key); 
+        else if (key > root.key) 
+            root.right = insertRec(root.right, key); 
+        return root; 
+    }
+    void inorderRec(Node root)  
+    { 
+        if (root != null)  
+        { 
+            inorderRec(root.left); 
+            System.out.print(root.key + " ");
+          if(root.key==search_v)
+     {
+System.out.print(search_v+”isFinded);
+       }
+            inorderRec(root.right); 
+        } 
+    } 
+    void treeins(int arr[]) 
+    { 
+        for(int i = 0; i <arr.length; i++) 
+        { 
+            insert(arr[i]); 
+        } 
+    }
+    public static void main(String[] args)  
+    { 
+        As_binary tree = new As_binary();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[] =new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        tree.treeins(arr); 
+        tree.inorderRec(tree.root); 
+    } 
+} 
+TEST CASE:
+I)INPUT: 6     10 45 18 20 6 78 12 8 4 1 2 		OUTPUT: 1 IS FINDED
+
+
+
+4.Write an algorithm to implement permutations and unrestricated repetitions to break a lock password.
+say example have an array of password  : a[] ="456" , "345" , "369"
+if this password is broked it has to to print " hai hello " message.
+
+ALGORITHM:
+1.Start the algorithm.
+2.To set an group of password into an array.
+	AI_array[]={345,456,649};
+3.To generate an value from 111 to 999.
+	Using three for loop and apply some mathematical expression
+	I*100+j*10+k
+4.They simultaneously check the password match or not.
+	{assert I*100+j*10+k==AI_array[k]}
+5.The password will be match and it print hi hello message 
+Writeln(“hi hello”)
+6.Stop the algorithm.
+
+PSEUDO CODE:
+AI_array[]={set of password};
+To generate an value from 111 to 999
+For(i<- 1 to 9)
+For(j<- 1 to 9)
+For(k<- 1 to 9)
+For(x<- 0 to 2)
+{assert I*100+j*10+k==AI_array[k]}
+Writeln(“hi hello”)
+End end end end
+
+
+JAVA PROGRAM:
+#include<stdio.h>
+int main()
+{
+//it is the group of password
+	int AI_array[]={456,345,369};
+	int i,j,k,x;
+//to generate a key values
+	for(i=1;i<10;i++){
+		for(j=1;j<10;j++){
+			for(k=1;k<10;k++){
+				for(x=0;x<3;x++){
+//check the values are match to the password or not
+					if(AI_array[x]==((i*100)+(j*10)+k)){
+//the password is correct to print the message
+						printf("hai hello\n");
+						}}}}}
+return 0;}
+
+TEST CASE:
+I)INPUT:345 456 659		OUTPUT: hi hello  hi hello  hi hello
+II)INPUT:	123 243		OUTPUT:hi hello   hi hello
+
+
+
+5.Write an algorithm and  program to convert a set of character in some other form by using permutations and store in a array using hasing method?
+	Example input: (2,a) (5,b) (10,c)
+	Output : a[2] => 110  a[3] => 111 a[1] =>112   
+
+ALGORITHM:
+1.Read the value of key and value
+2.Convert the value to binary form
+3.Store the binary value in the key position of array
+4.Print the array
+
+PSEUDO CODE:
+n;
+arr[n]
+for(i=0 to n)
+int temp=(int)arr[i];
+while(n>0)  {assert:True}
+k=n%10;
+l=l*10+k;
+n=n/10;
+while(l>0)   {assert:true}
+temp_v=l%10;
+k1=k1*10+temp_v;
+l=l/10;
+
+JAVA PROGRAM:
+import java.util.*;
+public class As_Find
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+         int arr[]=new int[100];
+        while(n>0)
+        {
+        int key=sc.nextInt();
+        char value=sc.next().charAt(0);
+        int k=0,k1=0;
+        int val=(int)value;
+        while(val>0)
+        {
+            int temp=val%2;
+            k=k*10+temp;
+            val=val/2;
+        }
+        while(k>0)
+        {
+            int temp_1=k%10;
+            k1=k1*10+temp_1;
+            k=k/10;
+        }
+        arr[key]=k1;
+        n--;
+        }
+        for(int i=0;i<100;i++)
+        {
+            System.out.print(arr[i]+" ");
+}}}
+
+
+TEST CASE
+Input: (2,a) (5,b) (10,c)
+Output : a[2] => 110  a[3] => 111 a[1] =>112   
