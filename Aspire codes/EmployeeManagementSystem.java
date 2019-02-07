@@ -77,16 +77,16 @@ public class EmployeeManagementSystem extends EmployeeManagementSystemUserInput 
         }
         if(count!=numberOfEmployeeString.length()){
             System.out.println("Enter only numbers between 1 to 5");
-            getTotalEmployees();
+            numberOfEmployeeString = getTotalEmployees();
         }
         if(!Character.isDigit(numberOfEmployeeString.charAt(0))){
             System.out.println("Enter only numbers between 1 to 5");
-            getTotalEmployees();
+            numberOfEmployeeString = getTotalEmployees();
         }
         numberOfEmployee = Integer.parseInt(numberOfEmployeeString);
         if(numberOfEmployee<=0||numberOfEmployee>5) {
             System.out.println("Enter only numbers between 1 to 5");
-            getTotalEmployees();
+            numberOfEmployeeString = getTotalEmployees();
         }
         try{
             PreparedStatement ps = null;
