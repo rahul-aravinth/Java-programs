@@ -6,14 +6,12 @@ public class GenerateRandom{
 
 	Random random = new Random();
 	// Paste when complete -"Anbarasu","Aravind","Arunjunai Roja","Dhanasoorya","Hari","Karthigaiselvi","Keerthanaa","Monisha","Pasupathi","Pavithra","Poornima","Priyadharshini","Rahul","Saravana Priya","Sathish Kumar Mauriya","Thirupathi","Vidya"
-	String[] names = {"Anbarasu","Aravind","Arunjunai Roja","Dhanasoorya","Hari","Karthigaiselvi","Keerthanaa","Monisha","Pasupathi","Pavithra","Poornima","Priyadharshini","Rahul","Saravana Priya","Sathish Kumar Mauriya","Thirupathi","Vidya"};
+	String[] names = {"Aravind","Arunjunai Roja","Dhanasoorya","Hari","Karthigaiselvi","Keerthanaa","Monisha","Pasupathi","Pavithra","Priyadharshini","Rahul","Saravana Priya","Sathish Kumar Mauriya","Thirupathi","Vidya"};
     int today = random.nextInt(17);
     System.out.print(names[today]);
-//    String[] topics = {"","","",""};
-//    today = random.nextInt(17);
-//    System.out.print(" - "+topics[today]);
-        
-//    1st Week
+    
+//    1st Week Open Talk
+
     /*
     *04-Jan-19 - Anbarasu
     *05-Jan-19 - Pasupathi and Pavithra
@@ -24,10 +22,11 @@ public class GenerateRandom{
     *23-Jan-19 - Hari, Vidya
     *24-Jan-19 - Monisha, Priyadharshini
 	*/
-        
-//    2nd Week
+    
+//    2nd Week Vocabulary
+
     /*
-    *
+    *06-Feb-19 - Anbarasu, Poornima
     *
     *
     *
